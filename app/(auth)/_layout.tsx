@@ -5,7 +5,7 @@ const AuthLayout = () => {
     return (
         <Stack
             screenOptions={{
-                headerShown: false,
+                headerBackVisible: false,
             }}
         ></Stack>
     );
