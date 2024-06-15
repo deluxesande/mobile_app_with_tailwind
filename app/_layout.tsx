@@ -40,7 +40,7 @@ export default function RootLayout() {
                     }}
                 />
             </Stack>
-            <StatusBar style="inverted" />
+            <StatusBar style="auto" animated={true} />
         </ThemeProvider>
     );
 }

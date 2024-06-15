@@ -5,7 +5,7 @@ import { Text, View } from "react-native";
 const Home = () => {
     return (
         <View className="mx-4">
-            <Text>Home</Text>
+            <Text className="font-medium">Home</Text>
             <Ionicons size={30} name="wifi" />
         </View>
     );
