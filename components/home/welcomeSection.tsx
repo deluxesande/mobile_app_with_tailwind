@@ -27,7 +27,7 @@ const WelcomeSection = () => {
                         className="text-2xl"
                         style={{ fontFamily: fonts.IbmPlexBold }}
                     >
-                        $ 4,590.00
+                        $4,590.00
                     </Text>
                 </View>
             </View>

@@ -1,5 +1,6 @@
 import PromotionSection from "@/components/home/PromotionSection";
 import ServicesSection from "@/components/home/ServicesSection";
+import TransactionSection from "@/components/home/TransactionSection";
 import WelcomeSection from "@/components/home/welcomeSection";
 import colors from "@/constants/colors";
 import React from "react";
@@ -11,12 +12,14 @@ const Home = () => {
             className="flex-1"
             style={{ backgroundColor: colors.white }}
         >
-            <ScrollView className="mx-4">
+            <ScrollView className="mx-4" showsVerticalScrollIndicator={false}>
                 <WelcomeSection />
 
                 <ServicesSection />
 
                 <PromotionSection />
+
+                <TransactionSection />
             </ScrollView>
         </SafeAreaView>
     );
