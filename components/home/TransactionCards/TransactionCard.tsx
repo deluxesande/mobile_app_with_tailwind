@@ -9,7 +9,7 @@ interface cardProps {
     transaction: Transaction;
 }
 
-const TransactionCards = ({ transaction }: cardProps) => {
+const TransactionCard = ({ transaction }: cardProps) => {
     return (
         <View className="h-16 flex-row items-center justify-between bg-white rounded-md my-1 px-4">
             <View className="flex-row items-center w-1/2 space-x-2">
@@ -41,4 +41,4 @@ const TransactionCards = ({ transaction }: cardProps) => {
     );
 };
 
-export default TransactionCards;
+export default TransactionCard;

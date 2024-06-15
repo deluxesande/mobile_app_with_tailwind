@@ -7,7 +7,7 @@ interface cardProps {
     color?: string;
 }
 
-const PromotionCards = ({ color = "bg-pink-200" }: cardProps) => {
+const PromotionCard = ({ color = "bg-pink-200" }: cardProps) => {
     return (
         <View
             className={`mt-6 w-80 mr-4 flex flex-row h-40 rounded-md px-6 py-8 ${color}`}
@@ -41,4 +41,4 @@ const PromotionCards = ({ color = "bg-pink-200" }: cardProps) => {
     );
 };
 
-export default PromotionCards;
+export default PromotionCard;

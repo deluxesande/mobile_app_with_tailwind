@@ -1,5 +1,5 @@
 import { FlatList, View } from "react-native";
-import PromotionCards from "@/components/home/PromotionCards/PromotionCards";
+import PromotionCard from "@/components/home/PromotionCards/PromotionCard";
 
 const PromotionSection = () => {
     const data = [
@@ -11,7 +11,7 @@ const PromotionSection = () => {
         <View className="w-full">
             <FlatList
                 data={data}
-                renderItem={({ item }) => <PromotionCards color={item.color} />}
+                renderItem={({ item }) => <PromotionCard color={item.color} />}
                 horizontal
                 showsHorizontalScrollIndicator={false}
             />

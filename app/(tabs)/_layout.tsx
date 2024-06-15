@@ -51,9 +51,9 @@ export default function TabLayout() {
                 }}
             />
             <Tabs.Screen
-                name="projects"
+                name="notifications"
                 options={{
-                    title: "Projects",
+                    title: "Notifications",
                     tabBarLabel: ({ focused }) => (
                         <View
                             className={`h-1 w-1 bg-black rounded-full ${
@@ -64,7 +64,11 @@ export default function TabLayout() {
                     tabBarLabelPosition: "below-icon",
                     tabBarIcon: ({ color, focused }) => (
                         <TabBarIcon
-                            name={focused ? "cube" : "cube-outline"}
+                            name={
+                                focused
+                                    ? "notifications"
+                                    : "notifications-outline"
+                            }
                             color={color}
                         />
                     ),

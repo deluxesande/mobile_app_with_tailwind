@@ -1,7 +1,7 @@
 import { View, Text, FlatList } from "react-native";
 import React from "react";
 import fonts from "@/constants/fonts";
-import TransactionCards from "./TransactionCards/TransactionCards";
+import TransactionCard from "./TransactionCards/TransactionCard";
 
 const TransactionSection = () => {
     const transactions = [
@@ -30,6 +30,9 @@ const TransactionSection = () => {
             date: "February 26, 2024",
         },
     ];
+
+    // TODO - check on scroll view and flat list having the same orientation
+
     return (
         <View className="mt-6">
             <View className="flex-row items-center justify-between">
@@ -48,12 +51,9 @@ const TransactionSection = () => {
             </View>
 
             <View className="mt-4">
-                <FlatList
-                    data={transactions}
-                    renderItem={({ item }) => (
-                        <TransactionCards transaction={item} />
-                    )}
-                />
+                {transactions.map((transaction, index) => (
+                    <TransactionCard key={index} transaction={transaction} />
+                ))}
             </View>
         </View>
     );
