@@ -15,13 +15,7 @@ const Login = () => {
             />
             <Text>Login</Text>
             <TouchableOpacity
-                style={{
-                    padding: 5,
-                    alignItems: "center",
-                    justifyContent: "center",
-                    backgroundColor: "orange",
-                    width: "50%",
-                }}
+                className="p-1 items-center justify-center bg-orange-400 w-1/2"
                 onPress={() => router.push("/home")}
             >
                 <Text>Home</Text>

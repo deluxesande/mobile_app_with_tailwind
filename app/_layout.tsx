@@ -12,6 +12,12 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
     const [loaded] = useFonts({
         SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+        IbmPlexBold: require("../assets/fonts/IBMPlexSans-Bold.ttf"),
+        IbmPlexRegular: require("../assets/fonts/IBMPlexSans-Regular.ttf"),
+        IbmPlexMedium: require("../assets/fonts/IBMPlexSans-Medium.ttf"),
+        RobotoBold: require("../assets/fonts/Roboto-Bold.ttf"),
+        RobotoMedium: require("../assets/fonts/Roboto-Medium.ttf"),
+        RobotoRegular: require("../assets/fonts/Roboto-Regular.ttf"),
     });
 
     useEffect(() => {
@@ -40,7 +46,7 @@ export default function RootLayout() {
                     }}
                 />
             </Stack>
-            <StatusBar style="auto" animated={true} />
+            <StatusBar style="dark" />
         </ThemeProvider>
     );
 }

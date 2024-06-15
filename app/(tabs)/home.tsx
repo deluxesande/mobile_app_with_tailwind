@@ -1,13 +1,24 @@
-import Ionicons from "@expo/vector-icons/Ionicons";
+import PromotionSection from "@/components/home/PromotionSection";
+import ServicesSection from "@/components/home/ServicesSection";
+import WelcomeSection from "@/components/home/welcomeSection";
+import colors from "@/constants/colors";
 import React from "react";
-import { Text, View } from "react-native";
+import { SafeAreaView, ScrollView } from "react-native";
 
 const Home = () => {
     return (
-        <View className="mx-4">
-            <Text className="font-medium">Home</Text>
-            <Ionicons size={30} name="wifi" />
-        </View>
+        <SafeAreaView
+            className="flex-1"
+            style={{ backgroundColor: colors.white }}
+        >
+            <ScrollView className="mx-4">
+                <WelcomeSection />
+
+                <ServicesSection />
+
+                <PromotionSection />
+            </ScrollView>
+        </SafeAreaView>
     );
 };
 

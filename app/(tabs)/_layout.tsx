@@ -1,51 +1,47 @@
 import { Tabs, useRouter } from "expo-router";
 import React from "react";
-import Ionicons from "@expo/vector-icons/MaterialIcons";
 
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
-import { Image } from "react-native";
 import colors from "@constants/colors";
+import { Image, View } from "react-native";
 
 export default function TabLayout() {
     const router = useRouter();
 
-    // TODO - make the header icons a custom component
-
     return (
         <Tabs
             screenOptions={{
-                tabBarActiveTintColor: colors.subtleCtaColor,
-                tabBarInactiveTintColor: "#777",
+                tabBarActiveTintColor: colors.black,
+                tabBarInactiveTintColor: colors.gray,
                 tabBarStyle: {
-                    height: 70,
-                    paddingBottom: 10,
+                    height: 80,
+                    paddingBottom: 5,
                 },
                 headerShadowVisible: false,
-                headerTitle: "",
-                headerStyle: {
-                    backgroundColor: "transparent",
-                },
-                headerRight: () => (
-                    <Ionicons
-                        name="menu"
-                        size={28}
-                        style={{ marginHorizontal: 10 }}
-                        onPress={() => {}}
-                    />
-                ),
-                headerLeft: () => (
+                headerTitle: () => (
                     <Image
-                        source={require("../../assets/images/react-logo.png")}
+                        source={require("@/assets/images/logo.png")}
                         resizeMode="contain"
-                        style={{ width: 40, marginHorizontal: 10 }}
+                        className="h-16 w-32"
                     />
                 ),
+                headerStyle: {
+                    backgroundColor: colors.white,
+                },
             }}
         >
             <Tabs.Screen
                 name="home"
                 options={{
                     title: "Home",
+                    tabBarLabel: ({ focused }) => (
+                        <View
+                            className={`h-1 w-1 bg-black rounded-full ${
+                                focused ? "block mb-4" : "hidden"
+                            }`}
+                        />
+                    ),
+                    tabBarLabelPosition: "below-icon",
                     tabBarIcon: ({ color, focused }) => (
                         <TabBarIcon
                             name={focused ? "home" : "home-outline"}
@@ -58,6 +54,14 @@ export default function TabLayout() {
                 name="projects"
                 options={{
                     title: "Projects",
+                    tabBarLabel: ({ focused }) => (
+                        <View
+                            className={`h-1 w-1 bg-black rounded-full ${
+                                focused ? "block mb-4" : "hidden"
+                            }`}
+                        />
+                    ),
+                    tabBarLabelPosition: "below-icon",
                     tabBarIcon: ({ color, focused }) => (
                         <TabBarIcon
                             name={focused ? "cube" : "cube-outline"}
@@ -70,18 +74,18 @@ export default function TabLayout() {
                 name="profile"
                 options={{
                     title: "Profile",
+                    tabBarLabel: ({ focused }) => (
+                        <View
+                            className={`h-1 w-1 bg-black rounded-full ${
+                                focused ? "block mb-4" : "hidden"
+                            }`}
+                        />
+                    ),
+                    tabBarLabelPosition: "below-icon",
                     tabBarIcon: ({ color, focused }) => (
                         <TabBarIcon
                             name={focused ? "person" : "person-outline"}
                             color={color}
-                        />
-                    ),
-                    headerRight: () => (
-                        <Ionicons
-                            name="share"
-                            size={28}
-                            style={{ marginHorizontal: 10 }}
-                            onPress={() => {}}
                         />
                     ),
                 }}
