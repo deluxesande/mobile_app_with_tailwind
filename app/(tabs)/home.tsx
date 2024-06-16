@@ -8,20 +8,15 @@ import { SafeAreaView, ScrollView } from "react-native";
 
 const Home = () => {
     return (
-        <SafeAreaView
-            className="flex-1"
-            style={{ backgroundColor: colors.white }}
-        >
-            <ScrollView className="mx-4" showsVerticalScrollIndicator={false}>
-                <WelcomeSection />
+        <ScrollView className="mx-4" showsVerticalScrollIndicator={false}>
+            <WelcomeSection />
 
-                <ServicesSection />
+            <ServicesSection />
 
-                <PromotionSection />
+            <PromotionSection />
 
-                <TransactionSection />
-            </ScrollView>
-        </SafeAreaView>
+            <TransactionSection />
+        </ScrollView>
     );
 };
 

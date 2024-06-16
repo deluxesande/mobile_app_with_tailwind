@@ -3,7 +3,7 @@ import React from "react";
 
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import colors from "@constants/colors";
-import { Image, View } from "react-native";
+import { View } from "react-native";
 
 export default function TabLayout() {
     const router = useRouter();
@@ -17,17 +17,7 @@ export default function TabLayout() {
                     height: 80,
                     paddingBottom: 5,
                 },
-                headerShadowVisible: false,
-                headerTitle: () => (
-                    <Image
-                        source={require("@/assets/images/logo.png")}
-                        resizeMode="contain"
-                        className="h-16 w-32"
-                    />
-                ),
-                headerStyle: {
-                    backgroundColor: colors.white,
-                },
+                headerShown: false,
             }}
         >
             <Tabs.Screen

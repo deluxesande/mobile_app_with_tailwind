@@ -5,6 +5,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
 import { StatusBar } from "expo-status-bar";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -32,21 +33,18 @@ export default function RootLayout() {
 
     return (
         <ThemeProvider value={DefaultTheme}>
-            <Stack>
-                <Stack.Screen
-                    name="(tabs)"
-                    options={{
+            <SafeAreaView className="flex-1">
+                <Stack
+                    screenOptions={{
                         headerShown: false,
                     }}
-                />
-                <Stack.Screen
-                    name="(auth)"
-                    options={{
-                        headerShown: false,
-                    }}
-                />
-            </Stack>
-            <StatusBar style="dark" />
+                >
+                    <Stack.Screen name="(tabs)" />
+                    <Stack.Screen name="(auth)" />
+                    <Stack.Screen name="index" />
+                </Stack>
+                <StatusBar style="dark" />
+            </SafeAreaView>
         </ThemeProvider>
     );
 }

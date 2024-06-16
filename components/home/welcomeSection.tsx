@@ -1,12 +1,19 @@
 import fonts from "@/constants/fonts";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import React from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View, Image } from "react-native";
 import CustomText from "@/components/CustomText";
 
 const WelcomeSection = () => {
     return (
-        <View className="mt-2">
+        <View>
+            <View>
+                <Image
+                    source={require("@/assets/images/logo.png")}
+                    resizeMode="contain"
+                    className="h-16 w-32"
+                />
+            </View>
             <View className="flex flex-row items-center justify-between">
                 <View>
                     <Text

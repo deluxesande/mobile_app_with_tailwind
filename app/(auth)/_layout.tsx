@@ -1,13 +1,16 @@
 import React from "react";
 import { Stack } from "expo-router";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const AuthLayout = () => {
     return (
-        <Stack
-            screenOptions={{
-                headerBackVisible: false,
-            }}
-        ></Stack>
+        <SafeAreaView className="flex-1">
+            <Stack
+                screenOptions={{
+                    headerShown: false,
+                }}
+            ></Stack>
+        </SafeAreaView>
     );
 };
 
