@@ -24,7 +24,7 @@ const TransactionCard = ({ transaction }: cardProps) => {
                         text={transaction.user.username}
                     />
                     <CustomText
-                        styles="text-xs text-gray-500 mt-1"
+                        styles="text-xs text-gray-500"
                         text={transaction.date}
                     />
                 </View>

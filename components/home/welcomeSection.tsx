@@ -3,8 +3,11 @@ import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import React from "react";
 import { Text, TouchableOpacity, View, Image } from "react-native";
 import CustomText from "@/components/CustomText";
+import { useRouter } from "expo-router";
 
 const WelcomeSection = () => {
+    const router = useRouter();
+
     return (
         <View>
             <View>
@@ -55,7 +58,7 @@ const WelcomeSection = () => {
                 {/* Send */}
                 <TouchableOpacity
                     className="items-center space-y-2"
-                    onPress={() => {}}
+                    onPress={() => router.navigate("/send")}
                 >
                     <FontAwesome
                         name="send-o"

@@ -9,8 +9,11 @@ const WelcomeScreen = () => {
     const router = useRouter();
 
     return (
-        <ScrollView>
-            <View className="items-center justify-center">
+        <ScrollView style={{ backgroundColor: colors.white }}>
+            <View
+                className="items-center justify-center"
+                style={{ backgroundColor: colors.main }}
+            >
                 <Image
                     source={require("@/assets/images/logo.png")}
                     resizeMode="contain"
@@ -28,9 +31,9 @@ const WelcomeScreen = () => {
                         className="mb-6"
                     />
                 </View>
-                <View className="mx-4 mt-10">
+                <View className="mt-10 w-full">
                     <View
-                        className="flex w-full items-center justify-center"
+                        className="flex w-full px-4 items-center justify-center"
                         style={{ backgroundColor: colors.white }}
                     >
                         <View className="flex items-center justify-center">
@@ -58,7 +61,7 @@ const WelcomeScreen = () => {
                             />
                             <CustomButton
                                 title="Sign Up"
-                                btnClassNames="border-black border-2"
+                                btnClassNames="border-black border"
                             />
                         </View>
                     </View>
