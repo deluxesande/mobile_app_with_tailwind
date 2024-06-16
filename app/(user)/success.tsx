@@ -5,8 +5,11 @@ import fonts from "@/constants/fonts";
 import CustomText from "@/components/CustomText";
 import RecipientCard from "@/components/home/TransactionCards/RecipientCard";
 import CustomButton from "@/components/CustomButton";
+import { useRouter } from "expo-router";
 
 const Success = () => {
+    const router = useRouter();
+
     return (
         <ScrollView
             className="px-4 py-6"
@@ -30,7 +33,7 @@ const Success = () => {
                         Transfer Success
                     </Text>
                     <CustomText
-                        styles="text-gray-500  text-center"
+                        styles="text-gray-500  text-center mt-2"
                         text="Your money has been successfully sent to Nayantara V"
                     />
                 </View>
@@ -64,6 +67,7 @@ const Success = () => {
                             btnClassNames="bg-black"
                             textClassNames="text-white"
                             title="Done"
+                            onPress={() => router.navigate("/home")}
                         />
                         <CustomButton
                             btnClassNames="bg-white mt-2"
