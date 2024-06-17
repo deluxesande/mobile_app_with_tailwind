@@ -12,12 +12,12 @@ const Success = () => {
 
     return (
         <ScrollView
-            className="px-4 py-6"
+            className="max-h-[100dvh] px-4 py-6"
             style={{ backgroundColor: colors.main }}
             showsVerticalScrollIndicator={false}
         >
             <View
-                className="h-screen rounded-md p-4"
+                className="h-screen rounded-md p-4 mb-28"
                 style={{ backgroundColor: colors.white }}
             >
                 <View className="w-full items-center">
