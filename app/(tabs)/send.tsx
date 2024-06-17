@@ -8,7 +8,11 @@ import NumberPad from "@/components/NumberPad";
 
 const Send = () => {
     const router = useRouter();
-    const [amount, setAmount] = useState("");
+    const [amount, setAmount] = useState("0");
+
+    const handleSend = () => {
+        router.navigate(`/success/${amount}`);
+    };
 
     return (
         <ScrollView
@@ -44,7 +48,7 @@ const Send = () => {
                         btnClassNames="bg-black"
                         textClassNames="text-white"
                         title="Send"
-                        onPress={() => router.navigate(`/success/${amount}`)}
+                        onPress={handleSend}
                     />
                 </View>
             </View>

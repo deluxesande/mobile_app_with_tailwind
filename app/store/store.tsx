@@ -1,5 +1,20 @@
-// import { createStore } from "zustand/vanilla";
+import { create } from "zustand";
 
-// const useUserStore = createStore(() => {
-//     users: [{ id: 1, username: "John D", balance: 0 }];
-// });
+interface UserStore {
+    users: object;
+}
+
+interface User {
+    user: object;
+}
+
+export const useUsersStore = create<UserStore>(() => ({
+    users: [
+        { id: 1, username: "John D", balance: 0, password: "1234" },
+        { id: 2, username: "Sarah S", balance: 0, password: "1234" },
+    ],
+}));
+
+export const useLoggedUser = create<User>((set) => ({
+    user: {},
+}));

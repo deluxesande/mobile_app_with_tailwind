@@ -3,7 +3,9 @@ import React from "react";
 
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import colors from "@constants/colors";
-import { View } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import fonts from "@/constants/fonts";
 
 export default function TabLayout() {
     const router = useRouter();
@@ -89,17 +91,63 @@ export default function TabLayout() {
             <Tabs.Screen
                 name="send"
                 options={{
-                    title: "Send",
+                    title: "",
                     tabBarButton: () => null,
                     headerShown: true,
+                    headerShadowVisible: false,
+                    headerStyle: {
+                        backgroundColor: colors.main,
+                    },
+                    headerStatusBarHeight: 0,
+                    headerLeft: () => (
+                        <View className="ml-4 flex-row items-center">
+                            <TouchableOpacity
+                                className=""
+                                onPress={() => router.back()}
+                            >
+                                <Ionicons name="arrow-back" size={25} />
+                            </TouchableOpacity>
+                            <Text
+                                className="text-2xl ml-4 mt-[-4px]"
+                                style={{ fontFamily: fonts.IbmPlexMedium }}
+                            >
+                                Send Money
+                            </Text>
+                        </View>
+                    ),
+                    headerRight: () => (
+                        <View className="mr-4 items-center">
+                            <Ionicons size={25} name="search" />
+                        </View>
+                    ),
                 }}
             />
             <Tabs.Screen
                 name="success/[id]"
                 options={{
-                    title: "Success",
+                    title: "",
                     tabBarButton: () => null,
                     headerShown: true,
+                    headerStyle: {
+                        backgroundColor: colors.main,
+                    },
+                    headerStatusBarHeight: 0,
+                    headerLeft: () => (
+                        <View className="ml-4 flex-row items-center">
+                            <TouchableOpacity
+                                className=""
+                                onPress={() => router.back()}
+                            >
+                                <Ionicons name="arrow-back" size={25} />
+                            </TouchableOpacity>
+                            <Text
+                                className="text-2xl ml-4 mt-[-4px]"
+                                style={{ fontFamily: fonts.IbmPlexMedium }}
+                            >
+                                Transfer Receipt
+                            </Text>
+                        </View>
+                    ),
                 }}
             />
         </Tabs>
