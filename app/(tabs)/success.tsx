@@ -7,6 +7,13 @@ import RecipientCard from "@/components/home/TransactionCards/RecipientCard";
 import CustomButton from "@/components/CustomButton";
 import { useRouter } from "expo-router";
 
+// import PushNotification from 'react-native-push-notification';
+
+// PushNotification.localNotification({
+//   title: "My Notification Title", // (optional)
+//   message: "My Notification Message", // (required)
+// });
+
 const Success = () => {
     const router = useRouter();
 
