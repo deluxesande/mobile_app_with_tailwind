@@ -84,6 +84,24 @@ export default function TabLayout() {
                     ),
                 }}
             />
+
+            {/* Hidden tabs */}
+            <Tabs.Screen
+                name="send"
+                options={{
+                    title: "Send",
+                    tabBarButton: () => null,
+                    headerShown: true,
+                }}
+            />
+            <Tabs.Screen
+                name="success"
+                options={{
+                    title: "Success",
+                    tabBarButton: () => null,
+                    headerShown: true,
+                }}
+            />
         </Tabs>
     );
 }
