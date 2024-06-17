@@ -1,12 +1,14 @@
 import { View, Text, Image, ScrollView } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import colors from "@/constants/colors";
 import fonts from "@/constants/fonts";
 import CustomButton from "@/components/CustomButton";
 import { useRouter } from "expo-router";
+import NumberPad from "@/components/NumberPad";
 
 const Send = () => {
     const router = useRouter();
+    const [amount, setAmount] = useState("");
 
     return (
         <ScrollView
@@ -34,11 +36,12 @@ const Send = () => {
                     </Text>
                 </View>
                 <View
-                    className="w-full h-1/2 flex-1 mt-6 px-4 pb-4 justify-end"
+                    className="w-full min-h-1/2 flex-1 mt-6 px-4 pb-4"
                     style={{ backgroundColor: colors.white }}
                 >
+                    <NumberPad onValueChange={setAmount} />
                     <CustomButton
-                        btnClassNames="bg-black"
+                        btnClassNames="bg-black mt-4"
                         textClassNames="text-white"
                         title="Send"
                         onPress={() => router.navigate("/success")}
