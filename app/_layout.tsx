@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import "react-native-reanimated";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
+import colors from "@/constants/colors";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -33,6 +34,7 @@ export default function RootLayout() {
 
     return (
         <ThemeProvider value={DefaultTheme}>
+            <StatusBar style="dark" backgroundColor={colors.white} />
             <SafeAreaView className="flex-1">
                 <Stack
                     screenOptions={{
@@ -43,7 +45,6 @@ export default function RootLayout() {
                     <Stack.Screen name="(auth)" />
                     <Stack.Screen name="index" />
                 </Stack>
-                <StatusBar style="dark" />
             </SafeAreaView>
         </ThemeProvider>
     );
