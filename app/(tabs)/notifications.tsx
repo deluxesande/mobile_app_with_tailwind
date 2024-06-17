@@ -1,18 +1,16 @@
+import NotificationCard from "@/components/Notifications/NotificationCard";
 import React from "react";
-import { SafeAreaView, ScrollView, Text } from "react-native";
+import { ScrollView } from "react-native";
 
-import colors from "@/constants/colors";
+const notifications = [1, 2, 3];
 
 const Notifications = () => {
     return (
-        <SafeAreaView
-            className="flex- 1"
-            style={{ backgroundColor: colors.white }}
-        >
-            <ScrollView className="mx-4">
-                <Text>Notifications</Text>
-            </ScrollView>
-        </SafeAreaView>
+        <ScrollView className="mx-4">
+            {notifications.map((notification, index) => (
+                <NotificationCard key={index} />
+            ))}
+        </ScrollView>
     );
 };
 
