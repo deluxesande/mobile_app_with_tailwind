@@ -1,4 +1,4 @@
-import { useAuth } from "@/app/store/store";
+import { useAuth } from "@/store/auth";
 import CustomText from "@/components/CustomText";
 import fonts from "@/constants/fonts";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
