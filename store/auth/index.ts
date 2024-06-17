@@ -12,10 +12,24 @@ interface AuthStore {
 }
 
 export const useAuth = create<AuthStore>((set) => ({
-    user: { id: 0, username: "", balance: 0, password: "" },
+    user: {
+        id: 0,
+        username: "",
+        balance: 0,
+        password: "",
+        email: "",
+        phone: "",
+    },
     logUser(user) {
         set({
-            user: { id: 1, username: "John D", balance: 0, password: "1234" },
+            user: {
+                id: 1,
+                username: "John D",
+                balance: 0.0,
+                password: "1234",
+                email: "john@gmail.com",
+                phone: "+254 712345678",
+            },
         });
 
         return true;
