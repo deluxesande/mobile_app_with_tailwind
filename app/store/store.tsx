@@ -1,11 +1,15 @@
 import { create } from "zustand";
 
-interface UserStore {
-    users: object;
-}
+type User = {
+    id: number;
+    username: string;
+    balance: number;
+    password: string;
+};
 
-interface User {
-    user: object;
+interface UserStore {
+    users: User[];
+    addUser: (user: User) => void;
 }
 
 export const useUsersStore = create<UserStore>(() => ({
@@ -13,8 +17,7 @@ export const useUsersStore = create<UserStore>(() => ({
         { id: 1, username: "John D", balance: 0, password: "1234" },
         { id: 2, username: "Sarah S", balance: 0, password: "1234" },
     ],
-}));
-
-export const useLoggedUser = create<User>((set) => ({
-    user: {},
+    addUser(user) {
+        console.log(user);
+    },
 }));

@@ -9,7 +9,9 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 const WelcomeSection = () => {
     const router = useRouter();
 
-    const users = useUsersStore((state) => state.users);
+    const addUser = useUsersStore((state) => state.addUser);
+
+    addUser({ id: 3, username: "Sarah S", balance: 0, password: "1234" });
 
     return (
         <View>
