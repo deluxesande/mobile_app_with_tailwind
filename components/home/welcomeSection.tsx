@@ -1,3 +1,4 @@
+import { useAuth } from "@/app/store/store";
 import CustomText from "@/components/CustomText";
 import fonts from "@/constants/fonts";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
@@ -7,6 +8,10 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 
 const WelcomeSection = () => {
     const router = useRouter();
+
+    const user = useAuth((state) => state.user);
+
+    if (!user) return null;
 
     return (
         <View>
@@ -23,7 +28,7 @@ const WelcomeSection = () => {
                         className="text-xl"
                         style={{ fontFamily: fonts.RobotoBold }}
                     >
-                        Hi, Samantha
+                        Hi, {user.username}
                     </Text>
                     <Text
                         className="text-base text-gray-500"
@@ -37,7 +42,7 @@ const WelcomeSection = () => {
                         className="text-2xl"
                         style={{ fontFamily: fonts.IbmPlexBold }}
                     >
-                        $4,590.00
+                        ${user.balance}
                     </Text>
                 </View>
             </View>

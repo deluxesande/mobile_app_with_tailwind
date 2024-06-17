@@ -5,15 +5,19 @@ import fonts from "@/constants/fonts";
 import { Link, useRouter } from "expo-router";
 import React, { useState } from "react";
 import { ScrollView, Text, View, TouchableOpacity } from "react-native";
+import { useAuth } from "../store/store";
 
 const Login = () => {
     const router = useRouter();
+    const logUser = useAuth((state) => state.logUser);
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     const handleLogin = () => {
-        console.log(username, password);
+        if (username != "" && password != "") {
+            if (logUser({ username, password })) router.push("/home");
+        }
     };
 
     return (
