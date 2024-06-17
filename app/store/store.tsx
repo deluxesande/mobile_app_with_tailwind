@@ -9,15 +9,29 @@ type User = {
 
 interface UserStore {
     users: User[];
-    addUser: (user: User) => void;
 }
 
+interface AuthStore {
+    user: User;
+    logUser: (user: User) => void;
+}
+
+// STORES
 export const useUsersStore = create<UserStore>(() => ({
     users: [
         { id: 1, username: "John D", balance: 0, password: "1234" },
         { id: 2, username: "Sarah S", balance: 0, password: "1234" },
     ],
-    addUser(user) {
-        console.log(user);
+}));
+
+export const useAuth = create<AuthStore>((set) => ({
+    user: { id: 0, username: "", balance: 0, password: "" },
+    logUser(user) {
+        const users = useUsersStore((state) => state.users);
+        const valid = users.includes(user);
+
+        if (valid) {
+            set({ user: user });
+        }
     },
 }));

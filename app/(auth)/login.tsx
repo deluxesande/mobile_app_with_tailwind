@@ -1,26 +1,68 @@
-import { SafeAreaView, Text, TouchableOpacity } from "react-native";
-import { Stack, useRouter } from "expo-router";
-import React from "react";
+import CustomButton from "@/components/CustomButton";
+import CustomText from "@/components/CustomText";
+import FormField from "@/components/FormField/FormField";
+import fonts from "@/constants/fonts";
+import { Link, useRouter } from "expo-router";
+import React, { useState } from "react";
+import { ScrollView, Text, View, TouchableOpacity } from "react-native";
 
 const Login = () => {
     const router = useRouter();
 
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleLogin = () => {
+        console.log(username, password);
+    };
+
     return (
-        <SafeAreaView>
-            <Stack.Screen
-                options={{
-                    headerTitle: "",
-                    headerShadowVisible: false,
-                }}
-            />
-            <Text>Login</Text>
-            <TouchableOpacity
-                className="p-1 items-center justify-center bg-orange-400 w-1/2"
-                onPress={() => router.push("/home")}
-            >
-                <Text>Home</Text>
-            </TouchableOpacity>
-        </SafeAreaView>
+        <ScrollView className="px-4">
+            <View className="w-full h-screen items-center justify-center">
+                <View className="w-full">
+                    <Text
+                        className="text-2xl"
+                        style={{ fontFamily: fonts.RobotoMedium }}
+                    >
+                        Login
+                    </Text>
+                    <CustomText
+                        styles="text-gray-500 text-base"
+                        text="Get started"
+                    />
+
+                    {/* INPUTS */}
+                    <FormField
+                        title="Username"
+                        placeholder="John Doe"
+                        setValue={setUsername}
+                    />
+                    <FormField
+                        title="Password"
+                        placeholder="Min. of 8 characters"
+                        setValue={setPassword}
+                    />
+                    <CustomButton
+                        btnClassNames="bg-black my-6"
+                        textClassNames="text-white"
+                        title="Log In"
+                        onPress={handleLogin}
+                    />
+                    <View className="flex-row items-center">
+                        <CustomText
+                            styles="text-base"
+                            text="Do not have an account?"
+                        />
+                        <TouchableOpacity className="ml-2">
+                            <CustomText
+                                styles="text-base text-blue-500 underline"
+                                text="Sign Up"
+                            />
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
+        </ScrollView>
     );
 };
 

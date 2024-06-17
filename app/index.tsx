@@ -57,7 +57,7 @@ const WelcomeScreen = () => {
                                 title="Login"
                                 btnClassNames="bg-black my-2"
                                 textClassNames="text-white"
-                                onPress={() => router.navigate("/home")}
+                                onPress={() => router.navigate("/login")}
                             />
                             <CustomButton
                                 title="Sign Up"

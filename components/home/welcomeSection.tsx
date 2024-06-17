@@ -1,4 +1,3 @@
-import { useUsersStore } from "@/app/store/store";
 import CustomText from "@/components/CustomText";
 import fonts from "@/constants/fonts";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
@@ -8,10 +7,6 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 
 const WelcomeSection = () => {
     const router = useRouter();
-
-    const addUser = useUsersStore((state) => state.addUser);
-
-    addUser({ id: 3, username: "Sarah S", balance: 0, password: "1234" });
 
     return (
         <View>
