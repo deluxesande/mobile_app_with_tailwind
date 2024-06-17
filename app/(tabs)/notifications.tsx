@@ -1,5 +1,6 @@
-import { SafeAreaView, ScrollView, Text } from "react-native";
 import React from "react";
+import { SafeAreaView, ScrollView, Text } from "react-native";
+
 import colors from "@/constants/colors";
 
 const Notifications = () => {

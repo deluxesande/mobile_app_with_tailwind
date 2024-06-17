@@ -1,9 +1,9 @@
-import fonts from "@/constants/fonts";
-import { Ionicons, FontAwesome } from "@expo/vector-icons";
-import React from "react";
-import { Text, TouchableOpacity, View, Image } from "react-native";
 import CustomText from "@/components/CustomText";
+import fonts from "@/constants/fonts";
+import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+import React from "react";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 
 const WelcomeSection = () => {
     const router = useRouter();
