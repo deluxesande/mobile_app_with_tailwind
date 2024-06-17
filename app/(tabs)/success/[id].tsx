@@ -5,7 +5,7 @@ import fonts from "@/constants/fonts";
 import CustomText from "@/components/CustomText";
 import RecipientCard from "@/components/home/TransactionCards/RecipientCard";
 import CustomButton from "@/components/CustomButton";
-import { useRouter } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 
 // import PushNotification from 'react-native-push-notification';
 
@@ -16,6 +16,7 @@ import { useRouter } from "expo-router";
 
 const Success = () => {
     const router = useRouter();
+    const params = useLocalSearchParams();
 
     return (
         <ScrollView
@@ -24,7 +25,7 @@ const Success = () => {
             showsVerticalScrollIndicator={false}
         >
             <View
-                className="h-screen rounded-md p-4 mb-28"
+                className="h-screen rounded-md p-4"
                 style={{ backgroundColor: colors.white }}
             >
                 <View className="w-full items-center">
@@ -54,7 +55,7 @@ const Success = () => {
                         className="text-4xl mt-2"
                         style={{ fontFamily: fonts.IbmPlexBold }}
                     >
-                        $132.00
+                        ${params.id}
                     </Text>
 
                     <View className="border border-dashed border-gray-500 w-full my-4" />

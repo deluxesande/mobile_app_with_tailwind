@@ -1,3 +1,5 @@
+import fonts from "@/constants/fonts";
+import { Ionicons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 
@@ -36,17 +38,35 @@ const NumberPad: React.FC<NumberPadProps> = ({ onValueChange }) => {
 
     return (
         <View className="flex-1 items-center justify-center">
-            <Text className="text-4xl mb-8">{inputValue}</Text>
+            <Text
+                className="text-4xl mb-8"
+                style={{ fontFamily: fonts.IbmPlexBold }}
+            >
+                ${inputValue}
+            </Text>
             <View className="flex-row flex-wrap justify-center">
                 {numPadKeys.map((key) => (
                     <TouchableOpacity
                         key={key}
                         // Adjust the width and margin if necessary to fit three items per row
-                        className="m-2 bg-gray-200 w-[25%] h-16 flex items-center justify-center rounded-full"
+                        className={`w-[30%] h-16 flex items-center justify-center border-gray-200 border-r border-b ${
+                            ["3", "6", "9", "bksp"].includes(key)
+                                ? "border-r-0"
+                                : ""
+                        } ${
+                            [".", "0", "bksp"].includes(key) ? "border-b-0" : ""
+                        }`}
                         onPress={() => handleKeyPress(key)}
                     >
-                        <Text className="text-2xl">
-                            {key === "bksp" ? "⌫" : key}
+                        <Text
+                            className="text-2xl"
+                            style={{ fontFamily: fonts.RobotoMedium }}
+                        >
+                            {key === "bksp" ? (
+                                <Ionicons size={30} name="backspace-outline" />
+                            ) : (
+                                key
+                            )}
                         </Text>
                     </TouchableOpacity>
                 ))}

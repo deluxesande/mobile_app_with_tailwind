@@ -41,10 +41,10 @@ const Send = () => {
                 >
                     <NumberPad onValueChange={setAmount} />
                     <CustomButton
-                        btnClassNames="bg-black mt-4"
+                        btnClassNames="bg-black"
                         textClassNames="text-white"
                         title="Send"
-                        onPress={() => router.navigate("/success")}
+                        onPress={() => router.navigate(`/success/${amount}`)}
                     />
                 </View>
             </View>

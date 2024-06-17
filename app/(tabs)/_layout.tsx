@@ -95,7 +95,7 @@ export default function TabLayout() {
                 }}
             />
             <Tabs.Screen
-                name="success"
+                name="success/[id]"
                 options={{
                     title: "Success",
                     tabBarButton: () => null,
