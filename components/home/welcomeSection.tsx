@@ -1,6 +1,6 @@
-import { useAuth } from "@/store/auth";
 import CustomText from "@/components/CustomText";
 import fonts from "@/constants/fonts";
+import { useAuthSelectors } from "@/store/auth";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React from "react";
@@ -9,7 +9,7 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 const WelcomeSection = () => {
     const router = useRouter();
 
-    const user = useAuth((state) => state.user);
+    const user = useAuthSelectors.use.user();
 
     if (!user) return null;
 

@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { User } from "../users";
+import { createSelectors } from "../utils/createSelectors";
 
 interface authUser {
     username: string;
@@ -35,3 +36,5 @@ export const useAuth = create<AuthStore>((set) => ({
         return true;
     },
 }));
+
+export const useAuthSelectors = createSelectors(useAuth);
