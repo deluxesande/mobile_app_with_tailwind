@@ -2,14 +2,11 @@ import CustomButton from "@/components/CustomButton";
 import CustomText from "@/components/CustomText";
 import colors from "@/constants/colors";
 import fonts from "@/constants/fonts";
+import { useAuthSelectors } from "@/store/auth";
 import { Alert, Image, ScrollView, Text, View } from "react-native";
 
 const Profile = () => {
-    const user = {
-        username: "Amanda Jane",
-        email: "amanda@gmail.com",
-        phone: "+254 712 345 678",
-    };
+    const user = useAuthSelectors.use.user();
 
     const handleDelete = () => {
         Alert.alert(

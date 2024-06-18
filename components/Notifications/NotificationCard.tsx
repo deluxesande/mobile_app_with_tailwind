@@ -19,15 +19,18 @@ const NotificationCard = () => {
             </View>
             <View className="flex-1 flex-row ml-4 items-center justify-between">
                 <View className="items-start flex-1">
-                    <Text>Zoe sent you $20</Text>
+                    <Text className="">Zoe sent you $20</Text>
                 </View>
                 <View className="flex-row items-center justify-end">
                     <MaterialCommunityIcons
                         name="timer-outline"
                         size={15}
-                        color={"#777"}
+                        color={"gray"}
                     />
-                    <CustomText styles="text-sm ml-2" text="Just now" />
+                    <CustomText
+                        styles="text-sm ml-1 text-gray-500"
+                        text="Just now"
+                    />
                 </View>
             </View>
         </View>
