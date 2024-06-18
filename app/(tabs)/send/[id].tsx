@@ -3,11 +3,16 @@ import React, { useState } from "react";
 import colors from "@/constants/colors";
 import fonts from "@/constants/fonts";
 import CustomButton from "@/components/CustomButton";
-import { useRouter } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import NumberPad from "@/components/NumberPad";
 
 const Send = () => {
     const router = useRouter();
+    const params = useLocalSearchParams();
+
+    const userID = params.id;
+    // TODO - add a method to get a single user
+
     const [amount, setAmount] = useState("0");
 
     const handleSend = () => {
@@ -20,20 +25,20 @@ const Send = () => {
             showsVerticalScrollIndicator={false}
         >
             <View className="h-screen" style={{ backgroundColor: colors.main }}>
-                <View className="items-center justify-center mt-10">
+                <View className="items-center justify-center mt-6">
                     <Image
                         source={require("@/assets/images/profile.png")}
                         resizeMode="contain"
-                        className="w-96 h-40"
+                        className="w-96 h-24"
                     />
                     <Text
-                        className="mt-4 text-3xl"
+                        className="mt-4 text-2xl"
                         style={{ fontFamily: fonts.IbmPlexBold }}
                     >
                         Nayantara V
                     </Text>
                     <Text
-                        className="text-lg text-gray-500 mt-1"
+                        className="text-base text-gray-500 mt-1"
                         style={{ fontFamily: fonts.RobotoMedium }}
                     >
                         +254 712345678
