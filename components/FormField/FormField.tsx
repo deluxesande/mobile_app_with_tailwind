@@ -36,6 +36,11 @@ const FormField = ({
                             undefined
                         }
                         onChangeText={(text) => setValue(text)}
+                        autoComplete={
+                            (title.match("Username") && "username") ??
+                            (title.match("Password") && "password") ??
+                            undefined
+                        }
                     />
                 </View>
             </View>

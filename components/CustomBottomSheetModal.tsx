@@ -1,29 +1,61 @@
-import React, { useMemo, useRef } from "react";
-import { View, Text } from "react-native";
-import { BottomSheetModal } from "@gorhom/bottom-sheet";
+import colors from "@/constants/colors";
+import { useUsersStoreSelectors } from "@/store/users";
+import {
+    BottomSheetBackdrop,
+    BottomSheetFlatList,
+    BottomSheetModal,
+    BottomSheetTextInput,
+} from "@gorhom/bottom-sheet";
+import React, { useCallback, useMemo } from "react";
+import { Text, View } from "react-native";
+import UserCard from "./home/UserCard/UserCard";
 
-const CustomBottomSheetModal = React.forwardRef((props, ref) => {
-    const snapPoints = useMemo(() => ["50%"], []);
+type Ref = BottomSheetModal;
 
-    // Use the forwarded ref to allow parent components to control this modal
-    const bottomSheetModalRef = useRef<BottomSheetModal>(null);
-    React.useImperativeHandle(ref, () => ({
-        present: () => {
-            bottomSheetModalRef.current?.present();
-        },
-        dismiss: () => {
-            bottomSheetModalRef.current?.dismiss();
-        },
-    }));
+const CustomBottomSheetModal = React.forwardRef<Ref>((props, ref) => {
+    const snapPoints = useMemo(() => ["60%"], []);
+
+    const renderBackdrop = useCallback(
+        (props: any) => (
+            <BottomSheetBackdrop
+                appearsOnIndex={0}
+                disappearsOnIndex={-1}
+                {...props}
+            />
+        ),
+        []
+    );
+
+    const users = useUsersStoreSelectors.use.users();
 
     return (
         <BottomSheetModal
-            ref={bottomSheetModalRef}
+            ref={ref}
             index={0}
             snapPoints={snapPoints}
+            backdropComponent={renderBackdrop}
+            handleIndicatorStyle={{ backgroundColor: colors.gray }}
+            backgroundStyle={{ backgroundColor: colors.main }}
         >
-            <View>
-                <Text>CustomBottomSheetModal</Text>
+            <View className="px-4 pt-2 flex-col items-center">
+                <View className="w-full h-12">
+                    <BottomSheetTextInput
+                        style={{
+                            backgroundColor: "#ddd",
+                            height: "100%",
+                            paddingHorizontal: 10,
+                            borderRadius: 8,
+                        }}
+                        placeholder="Search for a recipient"
+                    />
+                </View>
+
+                <View className="mt-4">
+                    <BottomSheetFlatList
+                        data={users}
+                        renderItem={() => <UserCard />}
+                    />
+                </View>
             </View>
         </BottomSheetModal>
     );

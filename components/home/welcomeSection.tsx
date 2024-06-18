@@ -2,9 +2,11 @@ import CustomText from "@/components/CustomText";
 import fonts from "@/constants/fonts";
 import { useAuthSelectors } from "@/store/auth";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
+import { BottomSheetModal, useBottomSheetModal } from "@gorhom/bottom-sheet";
 import { useRouter } from "expo-router";
-import React from "react";
+import React, { useRef } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
+import CustomBottomSheetModal from "../CustomBottomSheetModal";
 
 const WelcomeSection = () => {
     const router = useRouter();
@@ -13,10 +15,19 @@ const WelcomeSection = () => {
 
     if (!user) return null;
 
-    const handleSend = () => router.navigate("Send");
+    const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+
+    const { dismiss } = useBottomSheetModal();
+    const handlePresentModal = () => bottomSheetModalRef.current?.present();
+
+    const handleSend = () => {
+        handlePresentModal();
+        // router.navigate("/send")
+    };
 
     return (
         <View>
+            <CustomBottomSheetModal ref={bottomSheetModalRef} />
             <View>
                 <Image
                     source={require("@/assets/images/logo.png")}
