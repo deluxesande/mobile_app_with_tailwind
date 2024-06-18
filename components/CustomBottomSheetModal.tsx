@@ -53,7 +53,7 @@ const CustomBottomSheetModal = React.forwardRef<Ref>((props, ref) => {
                 <View className="mt-4">
                     <BottomSheetFlatList
                         data={users}
-                        renderItem={() => <UserCard />}
+                        renderItem={({ item }) => <UserCard user={item} />}
                     />
                 </View>
             </View>
