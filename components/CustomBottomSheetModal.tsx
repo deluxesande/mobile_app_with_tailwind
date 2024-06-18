@@ -4,10 +4,9 @@ import {
     BottomSheetBackdrop,
     BottomSheetFlatList,
     BottomSheetModal,
-    BottomSheetTextInput,
 } from "@gorhom/bottom-sheet";
 import React, { useCallback, useMemo } from "react";
-import { Text, View } from "react-native";
+import { TextInput, View } from "react-native";
 import UserCard from "./home/UserCard/UserCard";
 
 type Ref = BottomSheetModal;
@@ -39,7 +38,7 @@ const CustomBottomSheetModal = React.forwardRef<Ref>((props, ref) => {
         >
             <View className="px-4 pt-2 flex-col items-center">
                 <View className="w-full h-12">
-                    <BottomSheetTextInput
+                    <TextInput
                         style={{
                             backgroundColor: "#ddd",
                             height: "100%",
@@ -53,7 +52,13 @@ const CustomBottomSheetModal = React.forwardRef<Ref>((props, ref) => {
                 <View className="mt-4">
                     <BottomSheetFlatList
                         data={users}
-                        renderItem={({ item }) => <UserCard user={item} />}
+                        renderItem={({ item }) => (
+                            <UserCard
+                                user={item}
+                                handlePress={() => console.log(item.username)}
+                            />
+                        )}
+                        showsVerticalScrollIndicator={false}
                     />
                 </View>
             </View>

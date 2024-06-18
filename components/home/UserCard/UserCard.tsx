@@ -1,18 +1,20 @@
 import CustomText from "@/components/CustomText";
 import colors from "@/constants/colors";
 import React from "react";
-import { Image, View } from "react-native";
+import { Image, TouchableOpacity, View } from "react-native";
 import { User } from "@/store/users";
 
 interface Props {
     user: User;
+    handlePress: () => void;
 }
 
-const UserCard = ({ user }: Props) => {
+const UserCard = ({ user, handlePress }: Props) => {
     return (
-        <View
+        <TouchableOpacity
             className="h-20 flex-row items-center justify-between rounded-md my-1 px-4 shadow"
             style={{ backgroundColor: colors.white }}
+            onPress={handlePress}
         >
             <View className="flex-row items-center space-x-2">
                 <Image
@@ -30,7 +32,7 @@ const UserCard = ({ user }: Props) => {
                     </View>
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 };
 

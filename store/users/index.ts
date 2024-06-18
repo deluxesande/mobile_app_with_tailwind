@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { createSelectors } from "../utils/createSelectors";
+import { users } from "@/data/users";
 
 export type User = {
     id: number;
@@ -16,24 +17,8 @@ interface UserStore {
 }
 
 export const useUsersStore = create<UserStore>((set) => ({
-    users: [
-        {
-            id: 1,
-            username: "John D",
-            balance: 0.0,
-            password: "1234",
-            email: "john@gmail.com",
-            phone: "+254 712345678",
-        },
-        {
-            id: 2,
-            username: "Sarah S",
-            balance: 0.0,
-            password: "1234",
-            email: "sarah@gmail.com",
-            phone: "+254 712345678",
-        },
-    ],
+    users: users,
+    // To be used only in another store
     findUserByUsername(username) {
         return this.users.find((user) => user.username === username);
     },

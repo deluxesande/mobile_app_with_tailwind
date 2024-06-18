@@ -2,14 +2,12 @@ import CustomText from "@/components/CustomText";
 import fonts from "@/constants/fonts";
 import { useAuthSelectors } from "@/store/auth";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
-import { BottomSheetModal, useBottomSheetModal } from "@gorhom/bottom-sheet";
-import { useRouter } from "expo-router";
+import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import React, { useRef } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import CustomBottomSheetModal from "../CustomBottomSheetModal";
 
 const WelcomeSection = () => {
-    const router = useRouter();
 
     const user = useAuthSelectors.use.user();
 
@@ -17,12 +15,10 @@ const WelcomeSection = () => {
 
     const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
-    const { dismiss } = useBottomSheetModal();
     const handlePresentModal = () => bottomSheetModalRef.current?.present();
 
     const handleSend = () => {
         handlePresentModal();
-        // router.navigate("/send")
     };
 
     return (

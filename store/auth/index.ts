@@ -21,15 +21,17 @@ interface AuthStore {
     logUser: (userToLog: authUser) => boolean;
 }
 
+const initialState = {
+    id: 0,
+    username: "",
+    balance: 0,
+    password: "",
+    email: "",
+    phone: "",
+};
+
 export const useAuth = create<AuthStore>((set) => ({
-    user: {
-        id: 0,
-        username: "John D",
-        balance: 0,
-        password: "1234",
-        email: "",
-        phone: "",
-    },
+    user: { ...initialState },
     logUser(userToLog) {
         // Assuming usersStore is accessible and contains an array of user objects
         const userFromStore = useUsersStore
