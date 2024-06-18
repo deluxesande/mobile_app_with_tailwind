@@ -13,6 +13,8 @@ const WelcomeSection = () => {
 
     if (!user) return null;
 
+    const handleSend = () => router.navigate("Send");
+
     return (
         <View>
             <View>
@@ -63,7 +65,7 @@ const WelcomeSection = () => {
                 {/* Send */}
                 <TouchableOpacity
                     className="items-center space-y-2"
-                    onPress={() => router.navigate("/send")}
+                    onPress={handleSend}
                 >
                     <FontAwesome
                         name="send-o"

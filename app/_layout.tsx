@@ -7,6 +7,7 @@ import "react-native-reanimated";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import colors from "@/constants/colors";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -33,19 +34,21 @@ export default function RootLayout() {
     }
 
     return (
-        <ThemeProvider value={DefaultTheme}>
-            <StatusBar style="dark" backgroundColor={colors.white} />
-            <SafeAreaView className="flex-1">
-                <Stack
-                    screenOptions={{
-                        headerShown: false,
-                    }}
-                >
-                    <Stack.Screen name="(tabs)" />
-                    <Stack.Screen name="(auth)" />
-                    <Stack.Screen name="index" />
-                </Stack>
-            </SafeAreaView>
-        </ThemeProvider>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+            <ThemeProvider value={DefaultTheme}>
+                <StatusBar style="dark" backgroundColor={colors.white} />
+                <SafeAreaView className="flex-1">
+                    <Stack
+                        screenOptions={{
+                            headerShown: false,
+                        }}
+                    >
+                        <Stack.Screen name="(tabs)" />
+                        <Stack.Screen name="(auth)" />
+                        <Stack.Screen name="index" />
+                    </Stack>
+                </SafeAreaView>
+            </ThemeProvider>
+        </GestureHandlerRootView>
     );
 }
