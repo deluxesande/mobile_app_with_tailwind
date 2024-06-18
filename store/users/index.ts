@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { createSelectors } from "../utils/createSelectors";
 
 export type User = {
     id: number;
@@ -11,10 +12,10 @@ export type User = {
 
 interface UserStore {
     users: User[];
+    findUserByUsername: (username: string) => User | undefined;
 }
 
-// STORES
-export const useUsersStore = create<UserStore>(() => ({
+export const useUsersStore = create<UserStore>((set) => ({
     users: [
         {
             id: 1,
@@ -33,4 +34,9 @@ export const useUsersStore = create<UserStore>(() => ({
             phone: "+254 712345678",
         },
     ],
+    findUserByUsername(username) {
+        return this.users.find((user) => user.username === username);
+    },
 }));
+
+export const useUsersStoreSelectors = createSelectors(useUsersStore);
