@@ -8,7 +8,6 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import CustomBottomSheetModal from "../CustomBottomSheetModal";
 
 const WelcomeSection = () => {
-
     const user = useAuthSelectors.use.user();
 
     if (!user) return null;
@@ -16,6 +15,7 @@ const WelcomeSection = () => {
     const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
     const handlePresentModal = () => bottomSheetModalRef.current?.present();
+    const handleDismissModal = () => bottomSheetModalRef.current?.dismiss();
 
     const handleSend = () => {
         handlePresentModal();
@@ -23,7 +23,12 @@ const WelcomeSection = () => {
 
     return (
         <View>
-            <CustomBottomSheetModal ref={bottomSheetModalRef} />
+            {/* BOTTOM SHEET */}
+            <CustomBottomSheetModal
+                ref={bottomSheetModalRef}
+                handleDismiss={handleDismissModal}
+            />
+            {/* SECTION CODE */}
             <View>
                 <Image
                     source={require("@/assets/images/logo.png")}

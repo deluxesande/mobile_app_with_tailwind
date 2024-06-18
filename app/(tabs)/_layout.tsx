@@ -89,7 +89,7 @@ export default function TabLayout() {
 
             {/* Hidden tabs */}
             <Tabs.Screen
-                name="send"
+                name="send/[id]"
                 options={{
                     title: "",
                     tabBarButton: () => null,

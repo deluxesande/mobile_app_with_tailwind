@@ -8,10 +8,14 @@ import {
 import React, { useCallback, useMemo } from "react";
 import { TextInput, View } from "react-native";
 import UserCard from "./home/UserCard/UserCard";
+import { useRouter } from "expo-router";
 
 type Ref = BottomSheetModal;
+interface Props {
+    handleDismiss: () => void;
+}
 
-const CustomBottomSheetModal = React.forwardRef<Ref>((props, ref) => {
+const CustomBottomSheetModal = React.forwardRef<Ref, Props>((props, ref) => {
     const snapPoints = useMemo(() => ["60%"], []);
 
     const renderBackdrop = useCallback(
@@ -26,6 +30,7 @@ const CustomBottomSheetModal = React.forwardRef<Ref>((props, ref) => {
     );
 
     const users = useUsersStoreSelectors.use.users();
+    const router = useRouter();
 
     return (
         <BottomSheetModal
@@ -55,7 +60,10 @@ const CustomBottomSheetModal = React.forwardRef<Ref>((props, ref) => {
                         renderItem={({ item }) => (
                             <UserCard
                                 user={item}
-                                handlePress={() => console.log(item.username)}
+                                handlePress={() => {
+                                    props.handleDismiss();
+                                    router.push(`send/${item.username}`);
+                                }}
                             />
                         )}
                         showsVerticalScrollIndicator={false}
