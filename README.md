@@ -1,50 +1,73 @@
-# Welcome to your Expo app 👋
+# Welcome to Easy Pay 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
+## About
+
+This a react native app that allows users to send money, with the home screen with all the features of a typical mobile banking app.
+
+The send screen features a **custom number pad** that conforms with the apps design style.
+
 ## Get started
 
-1. Install dependencies
+1. Clone repository
 
-   ```bash
-   npm install
-   ```
+    ```bash
+       git clone https://github.com/deluxesande/mobile_app_with_tailwind.git
+       cd mobile_app_with_tailwind
+    ```
 
-2. Start the app
+2. Install dependencies
 
-   ```bash
-    npx expo start
-   ```
+    ```bash
+    npm install
+    ```
 
-In the output, you'll find options to open the app in a
+3. Start the app
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+    ```bash
+     npm run start
+    ```
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Tech Stack
 
-## Get a fresh project
+-   Expo
+-   React native
+-   Native wind
 
-When you're ready, run:
+    > Used for tailwind class names styling as a normal react app
 
-```bash
-npm run reset-project
-```
+    ```javascript
+    <View className="bg-slate-100">
+        <Text className="text-2xl">Hello world</Text>
+    </View>
+    ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+-   Zustand
+
+    > used for mock authentication and mocking users in a database. It is use in:
+
+        - /login
+        - /home
+        - /profile
+
+-   Bottom Sheet
+
+    > Used to display users in the app when sending money. Used in:
+
+        - /home/welcomeSection
+
+-   immer
+    > Used for object mutation in zustand
+
+## Missing features
+
+1. Backend system
+2. Authentication
 
 ## Learn more
 
 To learn more about developing your project with Expo, look at the following resources:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+-   [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+-   [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
